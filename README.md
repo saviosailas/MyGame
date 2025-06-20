@@ -15,3 +15,6 @@ mvn archetype:generate \
 
 # mvn archetype:generate -DarchetypeGroupId=org.apache.maven.archetypes -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.5
 ```
+
+20 June 2025
+![20 June 2025 status](screenshot/img-20-june-2025.png)
