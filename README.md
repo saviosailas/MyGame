@@ -16,6 +16,11 @@ mvn archetype:generate \
 # mvn archetype:generate -DarchetypeGroupId=org.apache.maven.archetypes -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.5
 ```
 
-1. Day one
+### Day 1
 
-![Day 01 status screenshot](screenshot/day01.png)
+![Day 01 status screenshot](screenshot/day01.png){ .image25percent }
+
+### Day 2
+- Added key listener for W, A, S ans D
+- Added 60 FPS animation
+![Day 02 status screenshot](screenshot/day01.mp4){ .image25percent }
