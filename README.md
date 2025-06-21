@@ -17,10 +17,15 @@ mvn archetype:generate \
 ```
 
 ### Day 1
+<figure markdown="span">
+![Day 01 status screenshot](screenshot/day01.png){ width="300" }
+<figcaption>Image caption</figcaption>
+</figure>
 
-![Day 01 status screenshot](screenshot/day01.png){ .image25percent }
+![Day 01 status screenshot](screenshot/day01.png){ width="300" }
+
 
 ### Day 2
 - Added key listener for W, A, S ans D
 - Added 60 FPS animation
-![Day 02 status screenshot](screenshot/day01.mp4){ .image25percent }
+![Day 02 status screenshot](screenshot/day01.gif){ width="300" }
