@@ -16,6 +16,6 @@ mvn archetype:generate \
 # mvn archetype:generate -DarchetypeGroupId=org.apache.maven.archetypes -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.5
 ```
 
-## Day one
+1. Day one
 
 ![Day 01 status screenshot](screenshot/day01.png)
