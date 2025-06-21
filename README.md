@@ -23,4 +23,4 @@ mvn archetype:generate \
 ### Day 2
 - Added key listener for W, A, S ans D
 - Added 60 FPS animation
-![Day 02 status screenshot](screenshot/day01.gif)
+![Day 02 status screenshot](screenshot/day02.gif)
