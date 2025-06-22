@@ -167,9 +167,7 @@ delta = delta + (currentTime - lastTime) / drawIntervel;
 - **Math calculation**:
   - Suppose `fps = 60`, so `drawIntervel ≈ 16,666,666.6667` nanoseconds.
   - If `currentTime - lastTime = 8,333,333` nanoseconds (half a frame’s time):
-    \[
-    \frac{8,333,333}{16,666,666.6667} \approx 0.5
-    \]
+    `8,333,333/16,666,666.6667 ≈ 0.5`
     So, `delta = delta + 0.5`.
   - If `delta` was 0.3 before, now `delta = 0.3 + 0.5 = 0.8`.
 - **Why it’s here**: This tracks how close we are to needing a new frame. When `delta` reaches 1 or more, it means enough time has passed for a full frame.
