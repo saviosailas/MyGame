@@ -26,7 +26,6 @@ mvn archetype:generate \
 ![Day 02 status screenshot](screenshot/day02.gif)
 
 
-Let’s break down this Java function in a way that’s easy to understand for a 15-year-old who’s new to coding. This code is likely part of a game loop, which is the “heartbeat” of a video game. It controls how often the game updates and redraws the screen to make things move smoothly. I’ll explain each line, the math behind it, why it’s written this way, and include simple examples to make it clear.
 
 ---
 ```java
