@@ -314,7 +314,7 @@ Let me know if you want me to explain anything further or show you how to test t
 
 ---
 
-# delta calculation explanation
+# Delta calculation explanation
 
 Hey! I’m going to explain this part of the code in a super simple way, like telling a story, since you’re 15 and new to Java and game development. We’re focusing on this line:
 
