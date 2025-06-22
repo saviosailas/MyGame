@@ -17,6 +17,7 @@ class GamePanel extends JPanel implements Runnable {
     final int screenWidth = tileSize * maxScreenCol;
     final int screenHeight = tileSize * maxScreenRow;
     final int fps = 60;
+    private final int oneBillion = 1_000_000_000;
 
     Thread gameThread;
     KeyHandler keyH = new KeyHandler();
@@ -39,34 +40,65 @@ class GamePanel extends JPanel implements Runnable {
         gameThread.start();
     }
 
+    // Delta game loop implemention
     @Override
     public void run() {
-        // 1 second = 1e+9 = 1 × 10⁹ = 1,000,000,000 (one billion) nanoseconds
-        // drawInterval =. 1/60 sec = 1e+9/60 ns
-        double drawInterval = 1000000000 / fps;
-        double nextDrawTime = System.nanoTime() + drawInterval;
-
-        // Game loop
-        while (true) {
-            // 1. Update: update information like character position
-            update();
-            // 2. Draw: draw screen with the updated information
-            repaint(); // call the paintComponent();
-            long remainingSleepTime = (long) nextDrawTime - System.nanoTime();
-            // 1 ms = 1e+6 ns = 1,000,000 (one million) nanoseconds
-            // convert nanoseconds to milliseconds | ms = ns/1,000,000
-            remainingSleepTime = remainingSleepTime / 1000000;
-            if (remainingSleepTime < 0) {
-                remainingSleepTime = 0;
+        double drawIntervel = (oneBillion / fps);
+        long lastTime = System.nanoTime();
+        long currentTime;
+        double delta = 0;
+        // FPS calc
+        // int drawCount = 0;
+        // long timer = 0;
+        while (gameThread != null) {
+            currentTime = System.nanoTime();
+            // if delta reach draw interval, then update UI
+            delta = delta + (currentTime - lastTime) / drawIntervel;
+            // timer += currentTime - lastTime;
+            lastTime = currentTime;
+            if (delta >= 1) {
+                update();
+                repaint();
+                delta--;
+                // drawCount++;
             }
-            try {
-                Thread.sleep(remainingSleepTime);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            nextDrawTime += drawInterval;
+            // FPS
+            // if (timer >= oneBillion) {
+            //     System.out.print("FPS: " + drawCount);
+            //     drawCount = 0;
+            //     timer = 0;
+            // }
         }
     }
+
+    // @Override
+    // public void run() {
+    //     // 1 second = 1e+9 = 1 × 10⁹ = 1,000,000,000 (one billion) nanoseconds
+    //     // drawInterval =. 1/60 sec = 1e+9/60 ns
+    //     double drawInterval = 1000000000 / fps;
+    //     double nextDrawTime = System.nanoTime() + drawInterval;
+
+    //     // Game loop
+    //     while (gameThread != null) {
+    //         // 1. Update: update information like character position
+    //         update();
+    //         // 2. Draw: draw screen with the updated information
+    //         repaint(); // call the paintComponent();
+    //         long remainingSleepTime = (long) nextDrawTime - System.nanoTime();
+    //         // 1 ms = 1e+6 ns = 1,000,000 (one million) nanoseconds
+    //         // convert nanoseconds to milliseconds | ms = ns/1,000,000
+    //         remainingSleepTime = remainingSleepTime / 1000000;
+    //         if (remainingSleepTime < 0) {
+    //             remainingSleepTime = 0;
+    //         }
+    //         try {
+    //             Thread.sleep(remainingSleepTime);
+    //         } catch (InterruptedException e) {
+    //             e.printStackTrace();
+    //         }
+    //         nextDrawTime += drawInterval;
+    //     }
+    // }
 
     public void update() {
         if (keyH.upPressed == true) {
